@@ -7,8 +7,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    public event EventHandler<OnShootEventArgs> OnShoot;
 
+    public event EventHandler<OnShootEventArgs> OnShoot;
     public class OnShootEventArgs : EventArgs
     {
         public Vector3 gunEndPointPosition;
@@ -33,6 +33,9 @@ public class PlayerWeapon : MonoBehaviour
     {
         HandleAiming();
         HandleShooting();
+        
+    
+    
     }
 
     private void HandleAiming()

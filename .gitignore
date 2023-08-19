@@ -36,3 +36,5 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+/Assets/Scripts/PlayerController.cs
+
