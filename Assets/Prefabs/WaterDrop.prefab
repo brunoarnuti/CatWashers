@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465726415956336877}
   - component: {fileID: 3064669790893416138}
-  - component: {fileID: 3669143156293989498}
+  - component: {fileID: -2832955239344914563}
   m_Layer: 0
   m_Name: WaterDrop
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3669143156293989498
+--- !u!114 &-2832955239344914563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
