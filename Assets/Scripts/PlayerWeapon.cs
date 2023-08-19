@@ -12,7 +12,7 @@ public class PlayerWeapon : MonoBehaviour
     public class OnShootEventArgs : EventArgs
     {
         public Vector3 gunEndPointPosition;
-        public Vector3 shootPosition;
+        //public Vector3 shootPosition;
     }
     
     public GameObject waterDropPrefab; // Reference to the WaterDrop prefab
@@ -26,7 +26,7 @@ public class PlayerWeapon : MonoBehaviour
     private void Awake()
     {
         aimTransform = transform.Find("Aim");
-        weaponShootPoint = aimTransform.Find("GunEndPointPosition");
+        weaponShootPoint = aimTransform.Find("ShootingPoint");
     }
 
     private void Update()
@@ -98,15 +98,18 @@ public class PlayerWeapon : MonoBehaviour
             Vector3 mousePosition = Utils.GetMouseWorldPosition();
             Vector3 direction = (mousePosition - weaponShootPoint.position).normalized;
 
-            // Instantiate the water droplet and initialize it
+            // Instantiate the water droplet
             GameObject waterDrop = Instantiate(waterDropPrefab, weaponShootPoint.position, Quaternion.identity);
-            waterDrop.GetComponent<WaterDrop>().Initialize(direction, /* currentRange */ 1f); // We'll replace 1f with the actual range from the WaterPressureManager later
-    
-            float currentRange = waterPressureManager.GetCurrentRange(); // Get the current range
+
+            // Get the current range from the WaterPressureManager
+            float currentRange = waterPressureManager.GetCurrentRange();
             Debug.Log("Current Range: " + currentRange); // Log the current range
+
+            // Initialize the water droplet with the direction and current range
             waterDrop.GetComponent<WaterDrop>().Initialize(direction, currentRange);
-            
+
             yield return new WaitForSeconds(fireRate);
         }
     }
+
 }
