@@ -14,7 +14,6 @@ public class catEnemy : MonoBehaviour
     private void Awake()
     {
         catRigibody2D = GetComponent<Rigidbody2D>();
-        targetGameObject = targetDestination.gameObject;
     }
 
     public void SetTarget(GameObject target)

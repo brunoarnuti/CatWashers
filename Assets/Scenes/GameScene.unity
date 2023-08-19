@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 9000394857802802002, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-  spawnArea: {x: 10, y: 8}
+  spawnArea: {x: 5, y: 5}
   spawnTimer: 2
   player: {fileID: 1969103748}
 --- !u!1 &1969103748
