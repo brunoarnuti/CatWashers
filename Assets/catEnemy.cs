@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class catEnemy : MonoBehaviour
 {
-    [SerializeField] Transform targetDestination;
+    Transform targetDestination;
     [SerializeField] float speed;
 
     GameObject targetGameObject;
@@ -15,6 +15,12 @@ public class catEnemy : MonoBehaviour
     {
         catRigibody2D = GetComponent<Rigidbody2D>();
         targetGameObject = targetDestination.gameObject;
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        targetGameObject = target;
+        targetDestination = target.transform;
     }
 
     private void FixedUpdate()

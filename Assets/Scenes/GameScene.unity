@@ -581,6 +581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ba411c78a2f8f40aa3c11ade90e24b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 9000394857802802002, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
+  spawnArea: {x: 10, y: 8}
+  spawnTimer: 2
+  player: {fileID: 1969103748}
 --- !u!1 &1969103748
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,67 +710,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &9194360389774511532
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3793988345535191227, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: targetDestination
-      value: 
-      objectReference: {fileID: 1969103749}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433042393552401552, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9000394857802802002, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
-      propertyPath: m_Name
-      value: CatEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8c7b75556d98d424ebf4723cfcaee730, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -776,4 +719,3 @@ SceneRoots:
   - {fileID: 1969103749}
   - {fileID: 734745758}
   - {fileID: 1620045336}
-  - {fileID: 9194360389774511532}
