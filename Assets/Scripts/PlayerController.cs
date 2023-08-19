@@ -6,10 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    
     private Rigidbody2D _rigidbody2D;
     private Vector3 movementVector;
 
     [SerializeField] private float speed = 3f;
+
+    
 
     private void Awake()
     {
