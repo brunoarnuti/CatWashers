@@ -1,28 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class catEnemy : MonoBehaviour
 {
-    [SerializeField] Transform targetDestination;
+    Transform targetDestination;
     [SerializeField] float speed;
 
-    Rigidbody2D catRigidBody;
+    GameObject targetGameObject;
+    Rigidbody2D catRigibody2D;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        catRigibody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetTarget(GameObject target)
     {
-        
+        targetGameObject = target;
+        targetDestination = target.transform;
     }
 
- /*   private void Awake()
+    private void FixedUpdate()
     {
-        catRigidBody
-    } */
+        Vector3 direction = (targetDestination.position - transform.position).normalized;
+        catRigibody2D.velocity = direction * speed;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject == targetGameObject) //TODO: ver si hay que suplantar con otro script
+        {
+            Attack();
+        }
+    }
+
+    private void Attack()
+    {
+        Debug.Log("Attacking the character!");
+    }
 }
