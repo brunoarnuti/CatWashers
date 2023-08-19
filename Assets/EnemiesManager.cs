@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+  /*  [SerializeField] GameObject enemy;
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
     float timer;
@@ -29,5 +29,5 @@ public class EnemiesManager : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemy);
         newEnemy.transform.position = position;
-    }
+    } */
 }
