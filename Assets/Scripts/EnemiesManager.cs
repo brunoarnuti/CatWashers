@@ -10,6 +10,8 @@ public class EnemiesManager : MonoBehaviour
     [SerializeField] float spawnTimer;
     [SerializeField] GameObject player;
     float timer;
+    [SerializeField] LayerMask obstacleLayer; // Layer containing the obstacles
+    [SerializeField] float obstacleCheckRadius = 0.5f; // Radius to check for obstacles
 
     private void Update()
     {
@@ -20,10 +22,17 @@ public class EnemiesManager : MonoBehaviour
             timer = spawnTimer;
         }
     }
-
+    
     private void SpawnEnemy()
     {
         Vector3 position = GenerateRandomPosition();
+
+        // Check for obstacles at the generated position
+        while (Physics2D.OverlapCircle(position + player.transform.position, obstacleCheckRadius, obstacleLayer) != null)
+        {
+            // If an obstacle is found, regenerate the position
+            position = GenerateRandomPosition();
+        }
 
         position += player.transform.position;
 

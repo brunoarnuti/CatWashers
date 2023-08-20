@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Damage Effect")]
+    public float invulnerabilityTime = 4f; // Invulnerability time in seconds
+    public float pushForce = 5f; // Force to push cats away
+    public AudioClip hitSound; // Sound effect for hit
+    public Color damageColor = Color.red; // Color when damaged
+
+    private bool isInvulnerable = false; // Flag for invulnerability
+    private SpriteRenderer spriteRenderer; // Reference to the sprite renderer
+    
     [Header("Movement")]
     [SerializeField] private float speed = 3f;
     private Rigidbody2D _rigidbody2D;
@@ -35,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Get the sprite renderer
     }
 
     private void Start()
@@ -89,11 +101,13 @@ public class PlayerController : MonoBehaviour
 
     private void HandleCollision(Collision2D collision)
     {
-        if (collision.gameObject.tag == "gatos" && estaVivo)
+        if (collision.gameObject.tag == "gatos" && estaVivo && !isInvulnerable)
         {
             Destroy(hearts[CantDeCorazon - 1].gameObject); // Destroy from the list
             hearts.RemoveAt(CantDeCorazon - 1); // Remove from the list
             CantDeCorazon -= 1;
+            
+            StartCoroutine(DamageEffect());
 
             if (CantDeCorazon == 0)
             {
@@ -101,6 +115,38 @@ public class PlayerController : MonoBehaviour
                 //Die();
             }
         }
+    }
+    
+    private IEnumerator DamageEffect()
+    {
+        // Set invulnerable
+        isInvulnerable = true;
+
+        // Change color to red
+        spriteRenderer.color = damageColor;
+
+        // Play hit sound
+        AudioSource.PlayClipAtPoint(hitSound, transform.position);
+
+        // Push cats away
+        Collider2D[] cats = Physics2D.OverlapCircleAll(transform.position, pushForce);
+        foreach (Collider2D cat in cats)
+        {
+            if (cat.CompareTag("gatos"))
+            {
+                Vector2 pushDirection = (cat.transform.position - transform.position).normalized;
+                cat.GetComponent<Rigidbody2D>().AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+            }
+        }
+
+        // Wait for invulnerability time
+        yield return new WaitForSeconds(invulnerabilityTime);
+
+        // Revert color
+        spriteRenderer.color = Color.white;
+
+        // Reset invulnerable
+        isInvulnerable = false;
     }
     
     // public void Die()
