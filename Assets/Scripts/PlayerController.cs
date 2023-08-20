@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             _rigidbody2D.velocity = Vector2.zero;
-    } 
+        } 
     }
 
     private void  OnCollisionEnter2D(Collision2D collision)
