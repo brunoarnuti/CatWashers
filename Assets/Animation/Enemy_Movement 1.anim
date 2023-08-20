@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_Movement
+  m_Name: Enemy_Movement 1
   serializedVersion: 7
   m_Legacy: 1
   m_Compressed: 0
@@ -21,15 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -483073771, guid: 7cfe8f11a559aa041b043398b7ac6b59, type: 3}
+      value: {fileID: -483073771, guid: 078fc39a874103e4a9f136b243214e91, type: 3}
     - time: 0.16666667
-      value: {fileID: 835504374, guid: 7cfe8f11a559aa041b043398b7ac6b59, type: 3}
+      value: {fileID: 835504374, guid: 078fc39a874103e4a9f136b243214e91, type: 3}
     - time: 0.33333334
-      value: {fileID: 375705126, guid: 7cfe8f11a559aa041b043398b7ac6b59, type: 3}
+      value: {fileID: 375705126, guid: 078fc39a874103e4a9f136b243214e91, type: 3}
     - time: 0.5
-      value: {fileID: 382379722, guid: 7cfe8f11a559aa041b043398b7ac6b59, type: 3}
+      value: {fileID: 382379722, guid: 078fc39a874103e4a9f136b243214e91, type: 3}
     - time: 0.6666667
-      value: {fileID: 1339957951, guid: 7cfe8f11a559aa041b043398b7ac6b59, type: 3}
+      value: {fileID: 1339957951, guid: 078fc39a874103e4a9f136b243214e91, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
