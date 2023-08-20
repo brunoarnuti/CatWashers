@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -18,21 +19,24 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public delegate void GameOverEventHandler();
+    public event GameOverEventHandler OnGameOver;
 
     public Image Corazon;
     public int CantDeCorazon;
     public RectTransform PosicionPrimerCorazon;
     public Canvas MyCanvas;
     public int OffSet;
-    public delegate void GameOverEventHandler();
-    public event GameOverEventHandler OnGameOver;
+
 
     private bool estaVivo = true;
+
+    public GameObject panelPausa;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        panelPausa.SetActive(false);
         Transform PosCorazon = PosicionPrimerCorazon;
 
         Debug.Log("Cantidad de vidas: " + CantDeCorazon);
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CantDeCorazon > 0 && estaVivo)
+        if (estaVivo)
         {
             movementVector.x = Input.GetAxis("Horizontal");
             movementVector.y = Input.GetAxis("Vertical");
@@ -57,7 +61,11 @@ public class PlayerController : MonoBehaviour
             movementVector *= speed;
 
             _rigidbody2D.velocity = movementVector;
-        } 
+        }
+        else
+        {
+            _rigidbody2D.velocity = Vector2.zero;
+    } 
     }
 
     private void  OnCollisionEnter2D(Collision2D collision)
@@ -74,12 +82,21 @@ public class PlayerController : MonoBehaviour
                 Die();
             }
 
-            Debug.Log("Cantidad de vidas restantes: " + CantDeCorazon);
+            
         }
     }
 
     public void Die()
     {
-        OnGameOver?.Invoke();
+        panelPausa.SetActive(true);
+        if (OnGameOver != null)
+        {
+            OnGameOver(); 
+        }
+    }
+
+    public void ReiniciarNivel()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
