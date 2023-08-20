@@ -110,7 +110,6 @@ public class WaterPressureManager : MonoBehaviour
     {
         currentPressure -= decreaseRate;
         currentPressure = Mathf.Max(currentPressure, minimumPressure);
-        Debug.Log("Current Pressure: " + currentPressure); // Log the current pressure
     }
 }
 

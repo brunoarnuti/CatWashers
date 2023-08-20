@@ -32,6 +32,7 @@ public class WaterDrop : MonoBehaviour
             Destroy(gameObject); // Destroy the water drop after hitting the cat
         }
     }
+    
 
     private void Update()
     {
