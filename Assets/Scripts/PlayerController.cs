@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void  OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "X")
+        if(collision.gameObject.tag == "Untaggedd")
         {
             Destroy(MyCanvas.transform.GetChild(CantDeCorazon + 1).gameObject);
             CantDeCorazon -= 1;
