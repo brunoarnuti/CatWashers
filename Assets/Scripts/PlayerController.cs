@@ -24,13 +24,18 @@ public class PlayerController : MonoBehaviour
     public RectTransform PosicionPrimerCorazon;
     public Canvas MyCanvas;
     public int OffSet;
+    public delegate void GameOverEventHandler();
+    public event GameOverEventHandler OnGameOver;
 
-    bool estaVivo = true;
+    private bool estaVivo = true;
+
     // Start is called before the first frame update
     void Start()
     {
 
-        Transform PosCorazon = PosicionPrimerCorazon; 
+        Transform PosCorazon = PosicionPrimerCorazon;
+
+        Debug.Log("Cantidad de vidas: " + CantDeCorazon);
 
         for (int i = 0; i < CantDeCorazon; i++)
         {
@@ -44,7 +49,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (CantDeCorazon > 0 && estaVivo)
         {
             movementVector.x = Input.GetAxis("Horizontal");
@@ -53,23 +57,29 @@ public class PlayerController : MonoBehaviour
             movementVector *= speed;
 
             _rigidbody2D.velocity = movementVector;
-        }
-
-        
-
+        } 
     }
 
     private void  OnCollisionEnter2D(Collision2D collision)
     {
-        if (CantDeCorazon == 0) 
-        {
-            estaVivo = false;
-        }
-        if (collision.gameObject.tag == "gatos")
+
+        if (collision.gameObject.tag == "gatos" && estaVivo)
         {
             Destroy(MyCanvas.transform.GetChild(CantDeCorazon + 1).gameObject);
             CantDeCorazon -= 1;
-            
+
+            if (CantDeCorazon == 0)
+            {
+                estaVivo = false;
+                Die();
+            }
+
+            Debug.Log("Cantidad de vidas restantes: " + CantDeCorazon);
         }
+    }
+
+    public void Die()
+    {
+        OnGameOver?.Invoke();
     }
 }
