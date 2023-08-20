@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3793988345535191227}
   m_Layer: 0
   m_Name: CatEnemy
-  m_TagString: Untagged
+  m_TagString: gatos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,5 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86da3485a5c77044585b71452b570af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDestination: {fileID: 0}
   speed: 1

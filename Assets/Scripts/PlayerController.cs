@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public RectTransform PosicionPrimerCorazon;
     public Canvas MyCanvas;
     public int OffSet;
+
+    bool estaVivo = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,21 +44,32 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementVector.x = Input.GetAxis("Horizontal");
-        movementVector.y = Input.GetAxis("Vertical");
+        
+        if (CantDeCorazon > 0 && estaVivo)
+        {
+            movementVector.x = Input.GetAxis("Horizontal");
+            movementVector.y = Input.GetAxis("Vertical");
 
-        movementVector *= speed;
+            movementVector *= speed;
 
-        _rigidbody2D.velocity = movementVector;
+            _rigidbody2D.velocity = movementVector;
+        }
+
+        
+
     }
 
     private void  OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Untaggedd")
+        if (CantDeCorazon == 0) 
+        {
+            estaVivo = false;
+        }
+        if (collision.gameObject.tag == "gatos")
         {
             Destroy(MyCanvas.transform.GetChild(CantDeCorazon + 1).gameObject);
             CantDeCorazon -= 1;
-            Destroy(collision.gameObject);
+            
         }
     }
 }

@@ -1111,6 +1111,7 @@ GameObject:
   - component: {fileID: 1969103751}
   - component: {fileID: 1969103750}
   - component: {fileID: 1969103753}
+  - component: {fileID: 1969103754}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1160,7 +1161,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1969103751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,6 +1247,41 @@ MonoBehaviour:
   waterDropPrefab: {fileID: 3334556698311295034, guid: aefc79b0b2d634185a6fa04f735e5653, type: 3}
   fireRate: 0.1
   waterPressureManager: {fileID: 2127618833}
+--- !u!70 &1969103754
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969103748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0033012629, y: 0}
+  m_Size: {x: 0.44660258, y: 0.45}
+  m_Direction: 0
 --- !u!1 &2002844009
 GameObject:
   m_ObjectHideFlags: 0
