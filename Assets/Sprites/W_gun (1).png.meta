@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 96ac95b91d3c5b44fb275fae3ae97608
+guid: 4076dce1de34d1049be74219922bff99
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: W_gun 1_0
+      name: W_gun (1)_0
       rect:
         serializedVersion: 2
         x: 2
         y: 6
         width: 13
-        height: 35
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b49a9bb418950e14fbf400587dd18852
-      internalID: 175745634
+      spriteID: 5dbf8a2ef7f5ed14db7c3b2951db4b84
+      internalID: -1892263046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: W_gun 1_1
+      name: W_gun (1)_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 7
-        width: 13
-        height: 33
+        x: 16
+        y: 10
+        width: 17
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f05b055971e86ee4bbee22d80fe1e27a
-      internalID: 1375104899
+      spriteID: fd4c4d7b9a2fdb142a934c3aefe093c1
+      internalID: -2046453074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W_gun (1)_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 12
+        width: 13
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a66d661d13b7314bb1380c356e18331
+      internalID: -566576302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W_gun (1)_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 10
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6372f0f4d0af3449e79758b0ef68bb
+      internalID: 377440067
       vertices: []
       indices: 
       edges: []
@@ -162,8 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      W_gun 1_0: 175745634
-      W_gun 1_1: 1375104899
+      W_gun (1)_0: -1892263046
+      W_gun (1)_1: -2046453074
+      W_gun (1)_2: -566576302
+      W_gun (1)_3: 377440067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
