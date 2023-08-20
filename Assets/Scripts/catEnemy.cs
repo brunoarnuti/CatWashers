@@ -52,7 +52,7 @@ public class catEnemy : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacking the character!");
+        
     }
     
     public void ApplyDamage(int damage)
@@ -73,6 +73,12 @@ public class catEnemy : MonoBehaviour
     private void Die()
     {
         Debug.Log("Cat has been defeated!");
+        XPBarManager xpBarManager = FindObjectOfType<XPBarManager>();
+         if (xpBarManager != null)
+         {
+             xpBarManager.AddCatKill(); // Add 100 XP for defeating a cat
+         }
         Destroy(gameObject);
     }
+
 }
