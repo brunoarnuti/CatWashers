@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -23,17 +24,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public delegate void GameOverEventHandler();
+    public event GameOverEventHandler OnGameOver;
 
     public Image Corazon;
     public int CantDeCorazon;
     public RectTransform PosicionPrimerCorazon;
     public Canvas MyCanvas;
     public int OffSet;
+
+
+    private bool estaVivo = true;
+
+    public GameObject panelPausa;
+
     // Start is called before the first frame update
     void Start()
     {
+        panelPausa.SetActive(false);
+        Transform PosCorazon = PosicionPrimerCorazon;
 
-        Transform PosCorazon = PosicionPrimerCorazon; 
+        Debug.Log("Cantidad de vidas: " + CantDeCorazon);
 
         for (int i = 0; i < CantDeCorazon; i++)
         {
@@ -47,23 +58,55 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementVector.x = Input.GetAxis("Horizontal");
-        movementVector.y = Input.GetAxis("Vertical");
+        if (estaVivo)
+        {
+            movementVector.x = Input.GetAxis("Horizontal");
+            movementVector.y = Input.GetAxis("Vertical");
 
-        movementVector *= speed;
+            movementVector *= speed;
 
-        _rigidbody2D.velocity = movementVector;
+
+            _rigidbody2D.velocity = movementVector;
+        }
+        else
+        {
+            _rigidbody2D.velocity = Vector2.zero;
+    } 
+        //_rigidbody2D.velocity = movementVector;
 
         animator.SetFloat("Horizontal", Mathf.Abs(movementVector.x));
+
     }
 
     private void  OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "X")
+
+        if (collision.gameObject.tag == "gatos" && estaVivo)
         {
             Destroy(MyCanvas.transform.GetChild(CantDeCorazon + 1).gameObject);
             CantDeCorazon -= 1;
-            Destroy(collision.gameObject);
+
+            if (CantDeCorazon == 0)
+            {
+                estaVivo = false;
+                Die();
+            }
+
+            
         }
+    }
+
+    public void Die()
+    {
+        panelPausa.SetActive(true);
+        if (OnGameOver != null)
+        {
+            OnGameOver(); 
+        }
+    }
+
+    public void ReiniciarNivel()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
