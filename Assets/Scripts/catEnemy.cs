@@ -38,6 +38,6 @@ public class catEnemy : MonoBehaviour
 
     private void Attack()
     {
-       // Debug.Log("Attacking the character!");
+
     }
 }
